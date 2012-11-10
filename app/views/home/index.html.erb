@@ -1,0 +1,21 @@
+<%= provide(:title, "nodes") %>
+
+<% content_for :breadcrumb do %>
+  <li><%= link_to "Home", root_path %></li>
+<% end %>
+
+<% @nodes.each do |node| %>
+
+  <div class="node-item border-b">
+    <div class="row">
+      <div class="span1 offset1 m5 p5">
+        <img src="" alt="rails" class="node-item-img" />
+      </div>
+      <div class="span8 m5 p5">
+        <%= link_to node.title, node_topics_path(node.id) %>
+      </div>
+    </div>
+  </div>
+
+<% end %>
+

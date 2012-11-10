@@ -2,15 +2,30 @@
 <%= @topic.title %>
 <% end %>
 
+<% content_for :breadcrumb do %>
+  <li>
+     <%= link_to "Home", root_path %>  <span class="divider">/</span>
+  </li>
+  <li>
+    <%= link_to "Topics", topics_path %> <span class="divider">/</span>
+  </li>
+  <li>
+    <%= link_to @topic.node.title, node_topics_path(@topic.node.id) %>  <span class="divider">/</span>
+  </li>
+  <li>
+    <%= link_to 'View Topic', @topic %>
+  </li>
+<% end %>
+
  <div class="topic ">
                <div class="row">
                   <div class="span1 offset1 m5 p5">
-                    <img src="rails.png" alt="rails" height="30" width="30"/>
+                    <img src="" alt="rails" height="30" width="30"/>
                   </div>
                   <div class="span8">
                     <div class="row m5 p5 "><%= @topic.title %></div>
                     <div class="row m5 p5 ">
-                      <a href="#">活动</a><span class="divider-vertical">|</span>
+                      <%= link_to @topic.node.title, node_topics_path(@topic.node.id) %><span class="divider">|</span>
                       <a href="#">Author</a><span class="divider">|</span>
                       <%= time_ago_in_words(@topic.created_at.localtime) %> aog 创建<span class="divider">|</span>
                       <a href="#">哈登</a><%= time_ago_in_words(@topic.updated_at.localtime)%> ago 回复

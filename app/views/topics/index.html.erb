@@ -1,17 +1,31 @@
 <%= provide(:title, "topics") %>
 
+<% content_for :breadcrumb do %>
+  <li>
+    <%= link_to "Home", root_path %><span class="divider">/</span>
+  </li>
+  <li>
+    <%= link_to "Topics", topics_path %><span class="divider">/</span>
+  </li>
+  <% if @node %>
+    <li>
+      <%= link_to @node.title, node_topics_path(@node.id) %>
+    </li>
+  <% end %>
+<% end %>
+
 <% @topics.each do |topic| %>
 
   <div class="topic-item border-b">
     <div class="row">
       <div class="span1 offset1 m5 p5">
 
-        <img src="rails.png" alt="rails" class="topic-item-img"/>
+        <img src="" alt="rails" class="topic-item-img"/>
       </div>
       <div class="span8">
         <div class="row m5 p5"><%= link_to topic.title, topic %></div>
         <div class="row m5 p5">
-          <a href="#">Node</a><span class="divider-vertical">|</span>
+          <%= link_to topic.node.title, node_topics_path(topic.node.id) %><span class="divider-vertical">|</span>
           <a href="#">Author</a><span class="divider">|</span>
           created_at <%= time_ago_in_words(topic.created_at.localtime) %> ago<span class="divider">|</span>
           <a href="virus"></a>replied <%= time_ago_in_words(topic.updated_at.localtime) %>
