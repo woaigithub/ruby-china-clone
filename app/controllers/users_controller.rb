@@ -7,6 +7,8 @@ class UsersController < ApplicationController
   def create
     @user= User.new(params[:user])
 
+   
+
     if @user.save
       
       
@@ -16,6 +18,13 @@ class UsersController < ApplicationController
       flash[:notice] = "sign up fail"
       render :new
     end
+
+
   end
 
+
+  def show
+
+    @user = User.find(params[:id])
+  end
 end
