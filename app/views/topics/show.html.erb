@@ -12,14 +12,14 @@
                     <div class="row m5 p5 ">
                       <a href="#">活动</a><span class="divider-vertical">|</span>
                       <a href="#">Author</a><span class="divider">|</span>
-                      <%= time_ago_in_words(@tipic.created_at.localtime) %> aog 创建<span class="divider">|</span>
+                      <%= time_ago_in_words(@topic.created_at.localtime) %> aog 创建<span class="divider">|</span>
                       <a href="#">哈登</a><%= time_ago_in_words(@topic.updated_at.localtime)%> ago 回复
                     </div>
                   </div>
                   <div class="span1 m5 p5 replies-count corner5"><a href="#">20</a></div>
                 </div>
                 <hr />
-                <div class="row topic-content m5 p5">
+                <div class=" topic-content m5 p5">
                      <%= @topic.content %>
                 <p>
                 不管是SASS，还是LESS，都可以视为一种基于CSS之上的高级语言，其目的是使得CSS开发更灵活和更强大，这两者我的感觉是对于程序员来说，SASS的功能要远比LESS强大，基本可以说是一种真正的编程语言了，而对于设计师，LESS则相对清晰明了，这里是Chris Coyier写的一篇关于SASS和LESS的背靠背对比，可以说是相当中肯的(评论也相当有料喔)。当然，如果使用Rails之类的框架，基于SASS是会来的更方便一些。
