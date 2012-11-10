@@ -1,0 +1,61 @@
+<%= provide(:title, "sign up") %>
+
+<% content_for :breadcrumb do %>
+  <li>
+    <%= link_to "Home", root_path %><span class="divider">/</span>
+  </li>
+  <li>
+    <%= link_to "Signup", signup_path %>
+  </li>
+<% end %>
+
+<%= form_for @user, :html => { :class => "form-horizontal" } do |f| %>
+  
+  <% if @user.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <div class="control-group">
+    <%= f.label :username, :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :username, :placeholder => "username" %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :email, :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :email, :placeholder => "email" %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :password, :class => "control-label" %>
+    <div class="controls">
+      <%= f.password_field :password, :placeholder => "password" %>
+    </div>
+  </div>
+ 
+  <div class="control-group">
+    <%= f.label :password_confirmation, :class => "control-label" %>
+    <div class="controls">
+      <%= f.password_field :password_confirmation, :placeholder => "confirmation password" %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="controls">
+      <label class=checkbox">
+        <input type="checkbox" value="">Remember me
+      </label>
+        <%= f.submit "Sign up", :class => "btn btn-large btn-primary" %>
+    </div>
+  </div>
+<% end %>

@@ -3,11 +3,12 @@ RubyChinaClone::Application.routes.draw do
   root :to => "home#index" 
 
   match "topics/node:id" => "topics#node", :as => :node_topics
+  match "signup" => "users#new"
 
 #  resources :nodes
   resources :topics
   resources :nodes
-
+  resources :users
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
