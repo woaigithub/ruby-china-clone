@@ -1,14 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>RubyChinaClone</title>
+  <title><%= full_title(yield :title) %>  </title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application", :medis => "all" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+  <%= render 'layouts/header' %>
+
+  <%= render 'layouts/breadcrumb' %>
+
+  <div class="container border mbt">
+    <div class="row-fluid">
+       <div class="span8 p10">
+  
+          <%= yield %>
+       </div>
+       <div class="span4 p10">
+         
+           <div class="box corner5">
+             <h2 class="font14px">热门话题</h2>
+             <ul>
+               <li><a href="#">天气冷</a></li>
+               <li><a href="#">天气冷</a></li>
+               <li><a href="#">天气冷</a></li>
+               <li><a href="#">天气冷</a></li>
+             </ul>
+           </div>
+           <div class="box corner5">
+             <h2 class="font14px">活跃话题</h2>
+              <ul>
+               <li><a href="#">天气冷</a></li>
+               <li><a href="#">天气冷</a></li>
+               <li><a href="#">天气冷</a></li>
+               <li><a href="#">天气冷</a></li>
+             </ul>
+           </div>
+      </div>
+    </div>
+  </div>
+
+
+  <%= render 'layouts/footer' %>
 
 </body>
 </html>

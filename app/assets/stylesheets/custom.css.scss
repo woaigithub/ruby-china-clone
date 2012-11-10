@@ -1,0 +1,102 @@
+
+
+body
+{
+    padding-top: 60px;
+  
+}
+
+.border
+{
+    border: 1px solid #F5F5F5;
+}
+.btop
+{
+    border: 1px solid #F5F5F5;
+}
+
+.show-grid
+{
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+.mbt
+{
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+.bgc
+{
+    background-color: #F5F5F5;
+}
+footer
+{
+    padding-top: 70px;
+    padding-bottom: 70px;
+    margin-bottom:0;
+}
+.box
+{
+    background-color: #F5F5F5;
+    padding-left: 5px;
+    padding-bottom: 5px;
+}
+.corner5
+{
+    /* Gecko browsers */
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px; /* Webkit browsers */
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px; /* W3C syntax */
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.font12px
+{
+    font-size: 12px;
+}
+.font14px
+{
+    font-size: 14px;
+}
+.box h2
+{
+    border-bottom: 1px solid #000000;
+}
+.m5
+{
+    margin: 5px;
+}
+.p5
+{
+    padding: 5px;
+}
+.m10
+{
+    margin: 10px;
+}
+.p10
+{
+    padding: 10px;
+}
+.border-b
+{
+     border-bottom: 1px solid #000000;
+}
+.replies-count
+{
+    background-color:#1C7FDB;
+    width:10px;
+    height:10px;
+}
+.replies-count a
+{
+    
+    color:#ffffff;
+}

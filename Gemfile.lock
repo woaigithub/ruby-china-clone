@@ -51,6 +51,8 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    factory_girl (4.1.0)
+      activesupport (>= 3.0.0)
     ffi (1.1.5)
     hike (1.2.1)
     i18n (0.6.1)
@@ -142,10 +144,11 @@ PLATFORMS
 DEPENDENCIES
   capybara (= 1.1.2)
   coffee-rails (~> 3.2.1)
+  factory_girl
   jquery-rails
   pg (= 0.12.2)
   rails (= 3.2.8)
-  rspec-rails (= 2.11.0)
+  rspec-rails (~> 2.0)
   sass-rails (~> 3.2.3)
   sqlite3
   uglifier (>= 1.0.3)

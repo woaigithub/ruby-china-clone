@@ -1,0 +1,24 @@
+<%= provide(:title, "topics") %>
+
+<% @topics.each do |topic| %>
+
+  <div class="topic-item border-b">
+    <div class="row">
+      <div class="span1 offset1 m5 p5">
+
+        <img src="rails.png" alt="rails" class="topic-item-img"/>
+      </div>
+      <div class="span8">
+        <div class="row m5 p5"><%= link_to topic.title, topic %></div>
+        <div class="row m5 p5">
+          <a href="#">Node</a><span class="divider-vertical">|</span>
+          <a href="#">Author</a><span class="divider">|</span>
+          created_at <%= time_ago_in_words(topic.created_at.localtime) %> ago<span class="divider">|</span>
+          <a href="virus"></a>replied <%= time_ago_in_words(topic.updated_at.localtime) %>
+        </div>
+      </div>
+      <div class="span1 m5 p5 replies-count corner5"><a href="#">20</a></div>
+    </div>
+  </div>
+
+<% end %>
