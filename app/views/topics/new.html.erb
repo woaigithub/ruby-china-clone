@@ -1,0 +1,55 @@
+<%= provide(:title, "add topic") %>
+
+<% content_for :breadcrumb do %>
+  <li>
+    <%= link_to "Home", root_path %><span class="divider">/</span>
+  </li>
+  <li>
+    <%= link_to "Topics", topics_path %><span class="divider">/<span>
+  </li>
+
+  <li>
+    <%= link_to "Add Topic", new_topic_path %>
+  </li>
+<% end %>
+
+<%= form_for @topic, :html => { :class => "form-horizontal" } do |f| %>
+
+  <% if @topic.errors.any? %>
+    <div class="alert">
+      <h2>from is invalid</h2>
+      <ul>
+        <% @topic.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :title, :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :title %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :node_id, "Node", :class => "control-label" %>
+    <div class="controls">
+      <%= f.select :node_id, @nodes.collect{ |node| [node.title, node.id]} %>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <%= f.label :content, :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_area :content, :rows => 10, :cols => 30 %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="controls">
+      <%= f.submit "Add Topic", class: "btn btn-large btn-primary"%>
+    </div>
+  </div>
+<% end %>

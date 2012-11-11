@@ -27,7 +27,12 @@
           <%= yield %>
        </div>
        <div class="span4 p10">
-         
+           <% if signed_in? %>
+           <div class"box corner5">
+             <%= link_to "New Topic", new_topic_path, :class => "btn btn-large btn-primary" %>
+           </div>
+           <% end %>
+            
            <div class="box corner5">
              <h2 class="font14px">热门话题</h2>
              <ul>

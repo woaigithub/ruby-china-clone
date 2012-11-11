@@ -26,7 +26,7 @@
                     <div class="row m5 p5 "><%= @topic.title %></div>
                     <div class="row m5 p5 ">
                       <%= link_to @topic.node.title, node_topics_path(@topic.node.id) %><span class="divider">|</span>
-                      <a href="#">Author</a><span class="divider">|</span>
+                      <%= link_to @topic.user.username, user_path(@topic.user.id) %><span class="divider">|</span>
                       <%= time_ago_in_words(@topic.created_at.localtime) %> aog 创建<span class="divider">|</span>
                       <a href="#">哈登</a><%= time_ago_in_words(@topic.updated_at.localtime)%> ago 回复
                     </div>
