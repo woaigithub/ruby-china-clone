@@ -17,24 +17,24 @@
   </li>
 <% end %>
 
- <div class="topic ">
-               <div class="row">
-                  <div class="span1 offset1 m5 p5">
-                    <img src="" alt="rails" height="30" width="30"/>
-                  </div>
-                  <div class="span8">
-                    <div class="row m5 p5 "><%= @topic.title %></div>
-                    <div class="row m5 p5 ">
+<div class="topic ">
+  <div class="row">
+    <div class="span1 offset1 m5 p5">
+          <img src="" alt="rails" height="30" width="30"/>
+    </div>
+    <div class="span8">
+      <div class="row m5 p5 "><%= @topic.title %></div>
+      <div class="row m5 p5 ">
                       <%= link_to @topic.node.title, node_topics_path(@topic.node.id) %><span class="divider">|</span>
                       <%= link_to @topic.user.username, user_path(@topic.user.id) %><span class="divider">|</span>
                       <%= time_ago_in_words(@topic.created_at.localtime) %> aog 创建<span class="divider">|</span>
                       <a href="#">哈登</a><%= time_ago_in_words(@topic.updated_at.localtime)%> ago 回复
-                    </div>
-                  </div>
-                  <div class="span1 m5 p5 replies-count corner5"><a href="#">20</a></div>
-                </div>
-                <hr />
-                <div class=" topic-content m5 p5">
+      </div>
+    </div>
+    <div class="span1 m5 p5 replies-count corner5"><a href="#">20</a></div>
+  </div>
+  <hr />
+  <div class=" topic-content m5 p5">
                      <%= @topic.content %>
                 <p>
                 不管是SASS，还是LESS，都可以视为一种基于CSS之上的高级语言，其目的是使得CSS开发更灵活和更强大，这两者我的感觉是对于程序员来说，SASS的功能要远比LESS强大，基本可以说是一种真正的编程语言了，而对于设计师，LESS则相对清晰明了，这里是Chris Coyier写的一篇关于SASS和LESS的背靠背对比，可以说是相当中肯的(评论也相当有料喔)。当然，如果使用Rails之类的框架，基于SASS是会来的更方便一些。
@@ -42,6 +42,17 @@
                 <p>
                 不管是SASS，还是LESS，都可以视为一种基于CSS之上的高级语言，其目的是使得CSS开发更灵活和更强大，这两者我的感觉是对于程序员来说，SASS的功能要远比LESS强大，基本可以说是一种真正的编程语言了，而对于设计师，LESS则相对清晰明了，这里是Chris Coyier写的一篇关于SASS和LESS的背靠背对比，可以说是相当中肯的(评论也相当有料喔)。当然，如果使用Rails之类的框架，基于SASS是会来的更方便一些。
                 </p>
-                </div>
-           </div>
+  </div>
+
+  <div class="row">
+    <div class="span2 offset3">
+    </div>
+    <div class="span1 pull-right">
+      <%= link_to "", edit_topic_path(@topic), :class => "icon-edit", :title => "edit topic"%>
+    </div>
+    <div class="span1 pull-right">
+      <%= link_to "",topic_path(@topic), :class => "icon-remove", :title => "remove topic", :method => :delete, :confirm => "are your sure delete this topic?" %>  
+    </div>        
+  </div>
+</div>
           

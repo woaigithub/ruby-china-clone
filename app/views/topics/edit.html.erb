@@ -1,4 +1,4 @@
-<%= provide(:title, "add topic") %>
+<%= provide(:title, "edit topic") %>
 
 <% content_for :breadcrumb do %>
   <li>
@@ -9,13 +9,13 @@
   </li>
 
   <li>
-    <%= link_to "Add Topic", new_topic_path %>
+    <%= link_to "Edit Topic", edit_topic_path(@topic) %>
   </li>
 <% end %>
 
-<%= form_for @topic, :html => { :class => "form-horizontal" } do |f| %>
+<%= form_for @topic, :url => topics_path, :html => { :class => "form-horizontal" } do |f| %>
 
-  <%= render 'layouts/error_messages', :target => @topic %>
+  <%= render 'layout/error_messages', :target => @topic
 
   <div class="control-group">
     <%= f.label :title, :class => "control-label" %>
@@ -30,7 +30,7 @@
       <%= f.select :node_id, @nodes.collect{ |node| [node.title, node.id]} %>
     </div>
   </div>
-  
+
   <div class="control-group">
     <%= f.label :content, :class => "control-label" %>
     <div class="controls">
@@ -40,7 +40,7 @@
 
   <div class="control-group">
     <div class="controls">
-      <%= f.submit "Add Topic", class: "btn btn-large btn-primary"%>
+      <%= f.submit "Save Topic", class: "btn btn-large btn-primary"%>
     </div>
   </div>
 <% end %>
