@@ -11,8 +11,8 @@ class TopicsController < ApplicationController
   end
 
   def index
-#    @node = nil
-    @topics = Topic.includes(:node).includes(:user).all
+    page = params[:page]
+    @topics = Topic.paginate(:page=>page,:per_page=>5).includes(:node).includes(:user)
   end
 
 
@@ -21,8 +21,9 @@ class TopicsController < ApplicationController
   end
   
   def node
+    page=params[:page]
     @node = Node.find(params[:id])
-    @topics = @node.topics.includes(:user).all
+    @topics = @node.topics.includes(:user).paginate(:page=>page,:per_page=>5)
 
     render :index
   end
