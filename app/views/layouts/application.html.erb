@@ -12,6 +12,14 @@
 
   <%= render 'layouts/breadcrumb' %>
 
+  <% if flash[:notice] %>
+  <div class="container mbt">
+    <div class="alert">
+      <%= flash[:notice] %>
+    </div>
+  </div>
+  <% end %>
+
   <div class="container border mbt">
     <div class="row-fluid">
        <div class="span8 p10">

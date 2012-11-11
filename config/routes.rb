@@ -4,11 +4,17 @@ RubyChinaClone::Application.routes.draw do
 
   match "topics/node:id" => "topics#node", :as => :node_topics
   match "signup" => "users#new"
+  match "signin" => "sessions#new"
+  match "signout" => "sessions#destroy", :via => :delete  
+  match "profile" => "users#show"
+  match "settings" => "users#edit"
+ 
 
 #  resources :nodes
   resources :topics
   resources :nodes
   resources :users
+  resources :sessions
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

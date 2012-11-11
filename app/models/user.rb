@@ -8,8 +8,8 @@ class User < ActiveRecord::Base
 
 #  has_secure_password
 
-  validates :username, :presence => true, :length => { :in =>6..20 }
-  validates :email, :presence => true
+  validates :username, :presence => true, :length => { :in =>6..20 }, :uniqueness => true
+  validates :email, :presence => true, :uniqueness => true
   validates :password, :confirmation => true
   validates :password_confirmation, :presence => true 
 
@@ -17,6 +17,11 @@ class User < ActiveRecord::Base
 
 
   before_save :encrypt_password
+
+  def authenticate(password)
+    self.password_digest==Digest::SHA1::hexdigest(password)
+    
+  end
 
   private
 
