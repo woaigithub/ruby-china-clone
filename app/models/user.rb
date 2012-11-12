@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   validates :password_confirmation, :presence => true 
 
   has_many :topics
+  has_many :comments
 
 
   before_save :encrypt_password

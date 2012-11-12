@@ -1,7 +1,7 @@
 class TopicsController < ApplicationController
 
-
-  before_filter :require_signin, :only => [:new, :create, :edit, :update, :destroy]
+  
+  skip_before_filter :require_signin, :only => [:index, :show, :node]
   before_filter :require_owner, :only => [:edit, :update, :destroy]
 
   def require_owner
@@ -12,12 +12,6 @@ class TopicsController < ApplicationController
     end
   end
  
-  def require_signin
-    unless signed_in?
-      flash[:notice]="you should be sign in first!"
-      redirect_to signin_path
-    end
-  end
 
   def index
     page = params[:page]

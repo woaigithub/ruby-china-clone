@@ -1,11 +1,19 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-
+ 
+  before_filter :require_signin
 
   helper_method :current_user, :signed_in?
 
 
   protected
+
+  def require_signin
+    unless signed_in?
+      flash[:notice]="you should be sign in first!"
+      redirect_to signin_path
+    end
+  end
 
   def sign_in(user)
     session[:user_id]=user.id 
