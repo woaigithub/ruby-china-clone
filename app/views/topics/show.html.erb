@@ -36,12 +36,6 @@
   <hr />
   <div class=" topic-content m5 p5">
                      <%= @topic.content %>
-                <p>
-                不管是SASS，还是LESS，都可以视为一种基于CSS之上的高级语言，其目的是使得CSS开发更灵活和更强大，这两者我的感觉是对于程序员来说，SASS的功能要远比LESS强大，基本可以说是一种真正的编程语言了，而对于设计师，LESS则相对清晰明了，这里是Chris Coyier写的一篇关于SASS和LESS的背靠背对比，可以说是相当中肯的(评论也相当有料喔)。当然，如果使用Rails之类的框架，基于SASS是会来的更方便一些。
-                </p>
-                <p>
-                不管是SASS，还是LESS，都可以视为一种基于CSS之上的高级语言，其目的是使得CSS开发更灵活和更强大，这两者我的感觉是对于程序员来说，SASS的功能要远比LESS强大，基本可以说是一种真正的编程语言了，而对于设计师，LESS则相对清晰明了，这里是Chris Coyier写的一篇关于SASS和LESS的背靠背对比，可以说是相当中肯的(评论也相当有料喔)。当然，如果使用Rails之类的框架，基于SASS是会来的更方便一些。
-                </p>
   </div>
 
   <div class="row">
@@ -55,4 +49,19 @@
     </div>        
   </div>
 </div>
-          
+
+<% if @topic.comments.any? %>
+<hr/>
+
+<div class="row offset1">
+  <h4>Comments:</h4>
+</div>
+  <%= render @topic.comments %>
+
+     
+<% end %>    
+
+<hr/>
+<div class="row">
+  <%= render 'comments/form' %>
+</div>

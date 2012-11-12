@@ -11,7 +11,9 @@ RubyChinaClone::Application.routes.draw do
  
 
 #  resources :nodes
-  resources :topics
+  resources :topics do
+    resources :comments
+  end
   resources :nodes
   resources :users
   resources :sessions
