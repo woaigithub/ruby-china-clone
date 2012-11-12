@@ -13,34 +13,4 @@
   </li>
 <% end %>
 
-<%= form_for @topic, :html => { :class => "form-horizontal" } do |f| %>
-
-  <%= render 'layouts/error_messages', :target => @topic %>
-
-  <div class="control-group">
-    <%= f.label :title, :class => "control-label" %>
-    <div class="controls">
-      <%= f.text_field :title %>
-    </div>
-  </div>
-
-  <div class="control-group">
-    <%= f.label :node_id, "Node", :class => "control-label" %>
-    <div class="controls">
-      <%= f.select :node_id, @nodes.collect{ |node| [node.title, node.id]} %>
-    </div>
-  </div>
-  
-  <div class="control-group">
-    <%= f.label :content, :class => "control-label" %>
-    <div class="controls">
-      <%= f.text_area :content, :rows => 10, :cols => 30 %>
-    </div>
-  </div>
-
-  <div class="control-group">
-    <div class="controls">
-      <%= f.submit "Add Topic", class: "btn btn-large btn-primary"%>
-    </div>
-  </div>
-<% end %>
+<%= render 'form'  %>

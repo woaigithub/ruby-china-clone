@@ -21,7 +21,9 @@ class TopicsController < ApplicationController
 
   def index
     page = params[:page]
-    @topics = Topic.paginate(:page=>page,:per_page=>5).includes(:node).includes(:user).order("")
+    @topics = Topic.paginate(:page=>page,:per_page=>5)
+                   .includes(:node).includes(:user)
+                   .order("topics.updated_at desc")
   end
 
 
@@ -33,6 +35,7 @@ class TopicsController < ApplicationController
     page=params[:page]
     @node = Node.find(params[:id])
     @topics = @node.topics.includes(:user).paginate(:page=>page,:per_page=>5)
+                   .order("topics.updated_at desc")
 
     render :index
   end
@@ -67,18 +70,20 @@ class TopicsController < ApplicationController
 
   def update
     @node=Node.find(params[:topic][:node_id])
-    @topic=@node.topics.build(:title=>params[:title],
-                              :content => params[:content])
-    @topic.user_id=current_user.id
-
+    @topic=Topic.find(params[:id])
+    @topic.title=params[:topic][:title]
+    @topic.content=params[:topic][:content]
+    @topic.node=@node
+   
     if @topic.save
       flash[:notice]="update topic successful"
       redirect_to topic_path @topic
     else
-      @ndoes=Node.all
+      @nodes=Node.all
       flash.now[:notice]="update topic fail"
 
       render :edit
+
     end
   end
   
