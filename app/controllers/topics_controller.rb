@@ -23,7 +23,10 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
+    @comment_latest=@topic.comments.order("comments.updated_at desc").first
+    @comment=Comment.new
   end
+
   
   def node
     page=params[:page]

@@ -20,6 +20,7 @@ class CommentsController < ApplicationController
   end
 
   def new
+    @topic=Topic.find(params[:topic_id])
     @comment=Comment.new
   end
 
@@ -37,11 +38,22 @@ class CommentsController < ApplicationController
   end
 
   def edit
-
+    @topic = Topic.find(params[:topic_id])
+    @comment=Comment.find(params[:id])   
   end 
 
   def update
+    @topic=Topic.find(params[:topic_id])
+    @comment=Comment.find(params[:id])
+    @comment.content=params[:comment][:content]
 
+    if @comment.save
+      flash[:notice]="update comment successful"
+      redirect_to @topic
+    else
+      flash[:notice]="update comment fail"
+      redirect_to @topic
+    end
   end
 
   def destroy

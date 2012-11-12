@@ -7,10 +7,10 @@
   </div>
 
 </div>
-<div class="rows offset1">
+<div class="row offset1">
   <%= comment.content %>
 </div>
-<div class="rows">
+<div class="row border-b">
   <div class="span1 offset2">
 
   </div>
@@ -20,5 +20,9 @@
                     :confirm => "are your sure delete comment?",
                     :title => "remove comment" %>
   </div>
+  <div class="span1 pull-right">
+    <%= link_to "",edit_topic_comment_path(@topic, comment), :class => "icon-edit",
+                    :title => "edit comment" %>
+  </div>
 </div>
-<hr/>
+

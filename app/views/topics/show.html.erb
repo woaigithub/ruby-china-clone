@@ -17,7 +17,7 @@
   </li>
 <% end %>
 
-<div class="topic ">
+<div class="topic border-b">
   <div class="row">
     <div class="span1 offset1 m5 p5">
           <img src="" alt="rails" height="30" width="30"/>
@@ -27,8 +27,13 @@
       <div class="row m5 p5 ">
                       <%= link_to @topic.node.title, node_topics_path(@topic.node.id) %><span class="divider">|</span>
                       <%= link_to @topic.user.username, user_path(@topic.user.id) %>
-                      <%= time_ago_in_words(@topic.created_at.localtime) %> ago 创建<span class="divider">|</span>
-                      <a href="#">哈登</a><%= time_ago_in_words(@topic.updated_at.localtime)%> ago 回复
+                      <%= time_ago_in_words(@topic.created_at.localtime) %> ago 创建
+                      <% if @comment_latest %>
+                      <span class="divider">|</span>
+                      <%= link_to @comment_latest.user.username, user_path(@comment_latest.user.id) %>
+                   
+                      <%= time_ago_in_words(@comment_latest.updated_at.localtime)%> ago 回复
+                      <% end %>
       </div>
     </div>
     <div class="span1 m5 p5 replies-count corner5"><a href="#">20</a></div>
@@ -51,17 +56,19 @@
 </div>
 
 <% if @topic.comments.any? %>
-<hr/>
 
-<div class="row offset1">
+<div class="row">
+  <div class="span1 offset1 pull-left">
   <h4>Comments:</h4>
+  </div>
 </div>
   <%= render @topic.comments %>
 
      
 <% end %>    
 
-<hr/>
 <div class="row">
+  <div class="span10 p10 m10">
   <%= render 'comments/form' %>
+  </div>
 </div>

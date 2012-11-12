@@ -1,0 +1,17 @@
+<%= provide(:title, "edit my comment") %>
+
+<% content_for :breadcrumb do %>
+  <li>
+    <%= link_to 'Home', root_path %><span class="divider">/</span>
+  </li>
+  <li>
+    <%= link_to "Topics", topics_path %><span class="divider">/</span>
+  </li>
+  <li>
+    <%= link_to "Edit Comment", edit_topic_comment_path(@topic, @comment) %>
+  </li>
+<% end %>
+
+
+
+<%= render 'form' %>
