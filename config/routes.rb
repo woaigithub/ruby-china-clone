@@ -6,8 +6,8 @@ RubyChinaClone::Application.routes.draw do
   match "signup" => "users#new"
   match "signin" => "sessions#new"
   match "signout" => "sessions#destroy", :via => :delete  
-  match "profile" => "users#show"
-  match "settings" => "users#edit"
+  match "profile/:id" => "users#show", :as => :profile
+  get "settings/:id" => "users#edit", :as => :settings
  
 
 #  resources :nodes

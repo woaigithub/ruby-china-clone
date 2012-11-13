@@ -14,3 +14,27 @@
     <%= link_to @user.username, @user %>
   </li>
 <% end %>
+
+<div class="row">
+  <div class="span2 offset1">
+    username
+  </div>
+
+  <div class="span5">
+    <%= @user.username %>
+  </div>
+</div>
+<div class="row">
+  <div class="span2 offset1">
+    email:
+  </div>
+
+  <div class="span5">
+    <%= @user.email %>
+  </div>
+</div>
+<div class="row">
+  <div class="span2 offset1">
+    <%= link_to "Edit", edit_user_path(@user.id), :class => "btn btn-lareg btn-primary" %>
+  </div>
+</div>

@@ -5,12 +5,15 @@
     <%= link_to "Home", root_path %><span class="divider">/</span>
   </li>
   <li>
-    <%= link_to "Signup", signup_path %>
+    <%= link_to "Users", users_path %><span class="divider">/</span>
+  </li>
+  <li>
+    <%= link_to "Edit", edit_user_path(@user.id) %>
   </li>
 <% end %>
 
 <%= form_for @user, :html => { :class => "form-horizontal" } do |f| %>
-  
+
   <% if @user.errors.any? %>
     <div class="alert">
       <h2>Form is invalid</h2>
@@ -21,7 +24,7 @@
       </ul>
     </div>
   <% end %>
- 
+
   <div class="control-group">
     <%= f.label :username, :class => "control-label" %>
     <div class="controls">
@@ -36,27 +39,10 @@
     </div>
   </div>
 
-  <div class="control-group">
-    <%= f.label :password, :class => "control-label" %>
-    <div class="controls">
-      <%= f.password_field :password, :placeholder => "password" %>
-    </div>
-  </div>
- 
-  <div class="control-group">
-    <%= f.label :password_confirmation, :class => "control-label" %>
-    <div class="controls">
-      <%= f.password_field :password_confirmation, :placeholder => "confirmation password" %>
-    </div>
-  </div>
 
   <div class="control-group">
     <div class="controls">
-      <label class=checkbox">
-        <input type="checkbox" value="">Remember me
-      </label>
-        <%= f.submit "Sign up", :class => "btn btn-large btn-primary" %>
-      <%= link_to "Have account, Sign in", signin_path, :class => "btn btn-large btn-primary" %>
+        <%= f.submit "Save", :class => "btn btn-large btn-primary" %>
     </div>
   </div>
 <% end %>
